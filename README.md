@@ -2,9 +2,9 @@
 
 A collection of AWS hands-on labs and architecture projects that document the services used, security configurations, access controls, design decisions, and lessons learned.
 
-## Labs
+## Labs and Projects
 
-| Lab | Description |
+| Lab / Project| Description |
 |---|---|
 | [S3 Static Website Hosting](./s3-static-website-hosting) | Static website on S3 with versioning, lifecycle rules, and cross-region replication |
 | [IAM Policies and Roles for S3 Access](./iam-policies-s3-access) | Exploring identity-based policies, role trust policies, and S3 bucket policies |
@@ -12,7 +12,7 @@ A collection of AWS hands-on labs and architecture projects that document the se
 
 More labs will be added here as they're completed.
 
-## Services Covered
+## Services Explored
 
 S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail
 
