@@ -1,6 +1,6 @@
 # AWS Cloud Architecting - Hands-on Labs
 
-Hands-on labs from the AWS Academy Cloud Architecting course. Each folder contains the lab implementation: services used, what was built, technical decisions made, and problems encountered along the way.
+A collection of AWS hands-on labs and architecture projects that document the services used, security configurations, access controls, design decisions, and lessons learned.
 
 ## Labs
 
@@ -14,6 +14,6 @@ More labs will be added here as they're completed.
 
 ## Services Covered
 
-S3, IAM
+S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail
 
 (this list grows as more labs are added)
