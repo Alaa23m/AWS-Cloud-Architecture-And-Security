@@ -9,7 +9,7 @@ A collection of AWS hands-on labs and architecture projects that document the se
 | [S3 Static Website Hosting](./s3-static-website-hosting) | Static website on S3 with versioning, lifecycle rules, and cross-region replication |
 | [IAM Policies and Roles for S3 Access](./iam-policies-s3-access) | Exploring identity-based policies, role trust policies, and S3 bucket policies |
 | [Inventory Manager — Proposed Production Architecture](./inventory-manager-aws-architecture) | Multi-tier stock-control web application architecture on AWS |
-| [Securing VPC Resources with Security Groups and NACLs](vpc-security-groups-and-private-access) | Traffic filtering, security group references, rule priority, and Session Manager access |
+| [Securing VPC Resources with Security Groups and NACLs](./vpc-security-groups-and-private-access) | Traffic filtering, security group references, rule priority, and Session Manager access |
 | [First NoSQL Database with DynamoDB](./dynamodb-user-video-history) | Creating and querying an Amazon DynamoDB table with a dynamic schema for viewer analytics |
 
 More labs and projects will be added as they are completed.
