@@ -35,46 +35,11 @@ The lab progressively restricts access to the application server:
 | Application | Webpage hosted on `AppServer`, reached through the proxy instances |
 | Administration | SSH through a bastion host and browser-based Session Manager |
 
-## Architecture
 
-### Initial HTTP request path
-
-```text
-Internet client
-      |
-      v
-Internet Gateway
-      |
-      +--> ProxyServer1 — PublicSubnetA — ProxySG
-      |          |
-      |          +-----------------------+
-      |                                  |
-      +--> ProxyServer2 — PublicSubnetB   |
-                 |          ProxySG2     |
-                 |                       |
-                 +-----------------------+
-                                         |
-                                         v
-                               AppServer — PrivateSubnet
-                                         AppServerSG
-```
 
 The public instances forward HTTP requests to the private application server. The browser connects to a proxy's public IP address, not directly to `AppServer`.
 
-### Private-subnet outbound path
 
-```text
-AppServer
-    |
-    v
-NAT Gateway in PublicSubnetA
-    |
-    v
-Internet Gateway
-    |
-    v
-Internet
-```
 
 The private route table sends `10.0.0.0/16` traffic through the local VPC route and other IPv4 traffic through the NAT Gateway. The route table was renamed from `changeme` to `Private`.
 
