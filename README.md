@@ -4,7 +4,7 @@ A collection of AWS hands-on labs and architecture projects that document the se
 
 ## Labs and Projects
 
-| Lab / Project| Description |
+| Lab / Project | Description |
 |---|---|
 | [S3 Static Website Hosting](./s3-static-website-hosting) | Static website on S3 with versioning, lifecycle rules, and cross-region replication |
 | [IAM Policies and Roles for S3 Access](./iam-policies-s3-access) | Exploring identity-based policies, role trust policies, and S3 bucket policies |
@@ -16,6 +16,6 @@ More labs and projects will be added as they are completed.
 
 ## Services Explored
 
-S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail, NAT Gateway, Systems Manager (SSM)
+S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail, NAT Gateway, Systems Manager (SSM), DynamoDB
 
 (This list grows as more labs are added)
