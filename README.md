@@ -13,11 +13,12 @@ A collection of AWS hands-on labs and architecture projects that document the se
 | [First NoSQL Database with DynamoDB](./dynamodb-user-video-history) | Creating and querying an Amazon DynamoDB table with a dynamic schema for viewer analytics |
 | [Encrypting Data at Rest with AWS KMS](./kms-data-encryption-lab/README.md) | Customer managed keys, S3 SSE-KMS, encrypted EBS volumes, and CloudTrail auditing |
 | [Security Monitoring with CloudWatch and EventBridge](./security-monitoring-cloudwatch-eventbridge/README.md) | API auditing, event-driven security notifications, and failed console sign-in detection |
+| [Automated Security Group Remediation with Config and Lambda](./automated-security-group-remediation/README.md) | Configuration monitoring, custom compliance evaluation, and automated remediation |
 
 More labs and projects will be added as they are completed.
 
 ## Services Explored
 
-S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail, NAT Gateway, Systems Manager (SSM), DynamoDB, KMS, EventBridge, SNS, CloudWatch
+S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail, NAT Gateway, Systems Manager (SSM), DynamoDB, KMS, EventBridge, SNS, CloudWatch, AWS Config, Lambda
 
 (This list grows as more labs are added)
