@@ -19,6 +19,6 @@ More labs and projects will be added as they are completed.
 
 ## Services Explored
 
-S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail, NAT Gateway, Systems Manager (SSM), DynamoDB, KMS, EventBridge, SNS, CloudWatch, AWS Config, Lambda
+S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail, VPC, NAT Gateway, Systems Manager (SSM), DynamoDB, KMS, EventBridge, SNS, CloudWatch, AWS Config, Lambda
 
 (This list grows as more labs are added)
