@@ -33,7 +33,7 @@ CloudWatch Logs provides evidence of the remediation actions.
 The Lambda function and IAM roles were supplied by the lab. The work focused on inspecting permissions, configuring AWS Config, connecting the custom rule to the function, and verifying remediation.
 
 #
-```
+
 
 The remediation is implemented by the Lambda function's code. This lab does not configure a separate AWS Config remediation action or Systems Manager Automation runbook.
 
@@ -65,7 +65,7 @@ Reviewed the existing `S3Access` policy on `AwsConfigRole` and attached the AWS 
 
 ```text
 AWS_ConfigRole
-```
+
 
 This role supports AWS Config resource discovery, configuration recording and delivery to the configured destination.
 
