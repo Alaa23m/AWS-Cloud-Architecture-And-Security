@@ -14,6 +14,7 @@ A collection of AWS hands-on labs and architecture projects that document the se
 | [Encrypting Data at Rest with AWS KMS](./kms-data-encryption-lab/README.md) | Customer managed keys, S3 SSE-KMS, encrypted EBS volumes, and CloudTrail auditing |
 | [Security Monitoring with CloudWatch and EventBridge](./security-monitoring-cloudwatch-eventbridge/README.md) | API auditing, event-driven security notifications, and failed console sign-in detection |
 | [Automated Security Group Remediation with Config and Lambda](./automated-security-group-remediation/README.md) | Configuration monitoring, custom compliance evaluation, and automated remediation |
+| [WordPress on AWS: EC2, RDS, ALB](./wordpress-multi-tier-aws/README.md) | Multi-tier WordPress architecture using EC2, RDS for MySQL, and an Application Load Balancer |
 
 More labs and projects will be added as they are completed.
 
