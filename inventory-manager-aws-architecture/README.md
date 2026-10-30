@@ -6,14 +6,14 @@ Documentation for Inventory Manager, a three-tier stock-control web application 
 
 ## Application
 
-Inventory Manager is a small stock-control system for office and IT supplies. It keeps a product catalogue, tracks units in stock, logs stock movements and flags products that have reached their reorder level.
+Inventory Manager is a small stock-control system for office and IT supplies. It keeps a product catalogue, tracks units in stock, logs stock movements, and flags products that have reached their reorder level.
 
 | Area | Behavior |
 |---|---|
 | Authentication | Username and password login. Protected API calls require a valid JWT; the login and health-check endpoints are exceptions. |
 | Dashboard | Totals for products, units and stock value, products to reorder, and latest stock movements. |
-| Products | Search and filter by name, SKU, category or low stock. Create, edit and delete products. View stock history per product. |
-| Stock movements | IN (received), OUT (issued) and ADJUST (physical count). Stock cannot go negative and changes are logged. |
+| Products | Search and filter by name, SKU, category or low stock. Create, edit, and delete products. View stock history per product. |
+| Stock movements | IN (received), OUT (issued) and ADJUST (physical count). Stock cannot go negative, and changes are logged. |
 | Categories and suppliers | Maintained separately. A category that still has products cannot be deleted. |
 | Roles | Admin has full access. Viewer has read-only access. |
 | Health check | `GET /health` is intended to return HTTP 200 when the database is reachable and HTTP 503 when it is not. |
@@ -59,32 +59,6 @@ The application design uses an `inventory_db` database with the following object
 
 The original deployment instructions refer to `database/inventory_schema.sql` and two seeded demo accounts, one Admin and one Viewer. **That SQL file is not shown in the repository layout below.** Add it to the repository before describing database initialization as reproducible from this repository. Demo accounts must be changed or removed outside a lab.
 
-## Architecture
-
-![High-level architecture](docs/architecture.png)
-
-The editable source is [`docs/architecture.drawio`](docs/architecture.drawio).
-
-> Update both diagram files if the image still shows WAF as a separate network hop before CloudFront, S3 as the frontend origin, or an Elastic IP attached to each Auto Scaling instance. The description below is the intended corrected design.
-
-The proposed design targets the Europe (Ireland) Region, `eu-west-1`. It places CloudFront and AWS WAF in front of an ALB, runs the application on two EC2 instances in an Auto Scaling group across two Availability Zones, and keeps the database in a private subnet.
-
-```text
-Users
-  |
-  v
-CloudFront (AWS WAF web ACL attached)
-  |
-  v
-Internet-facing Application Load Balancer
-  |
-  v
-EC2 Auto Scaling group (2 Availability Zones)
-  |  nginx -> Angular files
-  |        -> ASP.NET Core API on localhost:5000
-  v
-RDS for MySQL (Single-AZ, private subnet)
-```
 
 CloudFront uses the ALB as its origin in this version of the design. nginx on EC2 serves the Angular build; **S3 is not also claimed as a frontend origin**. The Internet Gateway provides connectivity for public subnets, but it is not an application-processing step between CloudFront and the ALB.
 
@@ -99,13 +73,13 @@ CloudFront uses the ALB as its origin in this version of the design. nginx on EC
 | Network | VPC | Network for the workload. |
 | Network | Subnets | Two public subnets for the ALB and application instances, and two private subnets in different Availability Zones for the RDS DB subnet group. |
 | Network | Internet Gateway | Internet connectivity for resources in public subnets when their routing and addressing permit it. |
-| Network | Security groups | ALB-SG, App-SG and DB-SG restrict inbound traffic between tiers. |
+| Network | Security groups | ALB-SG, App-SG, and DB-SG restrict inbound traffic between tiers. |
 | Compute | Application Load Balancer | HTTPS listener forwards traffic to a target group on instance port 80. Its target group health-checks an application endpoint. |
 | Compute | EC2 | Proposed baseline of two `m6i.xlarge` instances, one per Availability Zone, each running nginx and the .NET 8 API. Instance sizing requires workload testing before production use. |
 | Compute | Auto Scaling group | Spans both application subnets. Proposed minimum and desired capacity: two instances. Configure ALB health checks for replacement; scaling policies require defined metrics and thresholds. |
 | Storage | EBS | Proposed encrypted 60 GB application volume per instance. Volume sizing requires validation. |
 | Database | RDS for MySQL | Proposed MySQL 8.4, `db.m5.4xlarge`, Single-AZ, 50 GB storage. RDS is not publicly accessible. Database sizing and availability requirements need validation. |
-| Security | IAM policies | Instance role with permissions scoped to Systems Manager, application secrets and monitoring as needed. No long-lived access keys on instances. |
+| Security | IAM policies | Instance role with permissions scoped to Systems Manager, application secrets, and monitoring as needed. No long-lived access keys on instances. |
 | Security | AWS KMS | Encryption keys as configured for EBS, RDS and Secrets Manager. |
 | Security | AWS Secrets Manager | Proposed storage for database credentials and the JWT signing key. |
 | Security | Amazon GuardDuty | Proposed threat-detection service. |
@@ -233,7 +207,7 @@ sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t && sudo systemctl reload nginx
 ```
 
-These commands alone do not install dependencies, deploy the application files, configure secrets or create AWS resources.
+These commands alone do not install dependencies, deploy the application files, configure secrets, or create AWS resources.
 
 ## Verification
 
@@ -252,16 +226,4 @@ These are checks to perform on a deployment, **not evidence that the complete pr
 
 Because `/health` checks database connectivity, a database outage may cause **all** ALB targets to fail health checks even if their EC2 instances are running. Consider whether separate liveness and readiness checks would better suit the final deployment.
 
-## Repository layout
 
-The repository layout currently documented for this project is:
-
-```text
-.
-|-- README.md
-`-- docs/
-    |-- architecture.drawio
-    `-- architecture.png
-```
-
-Update this section when application source, database scripts, service files or nginx configuration are added. Verify that both architecture files exist and match the design described above before publishing.
