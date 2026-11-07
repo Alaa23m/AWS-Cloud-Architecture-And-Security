@@ -16,11 +16,12 @@ A collection of AWS hands-on labs and architecture projects that document the se
 | [Automated Security Group Remediation with Config and Lambda](./automated-security-group-remediation/README.md) | Configuration monitoring, custom compliance evaluation, and automated remediation |
 | [WordPress on AWS: EC2, RDS, ALB](./wordpress-multi-tier-aws/README.md) | Multi-tier WordPress architecture using EC2, RDS for MySQL, and an Application Load Balancer |
 | [Serverless Fundamentals on AWS](./serverless-fundamentals-aws/README.md) | Compute, storage, and messaging with Lambda, DynamoDB, and SQS |
+| [Installing and Configuring the AWS CLI](./aws-cli-installation-and-configuration/README.md) | AWS CLI installation, credential configuration, and IAM inspection on Linux |
 
 More labs and projects will be added as they are completed.
 
 ## Services Explored
 
-S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail, VPC, NAT Gateway, Systems Manager (SSM), DynamoDB, KMS, EventBridge, SNS, CloudWatch, AWS Config, Lambda, SQS
+S3, IAM, EC2, ALB, RDS MySQL, CloudFront, WAF, Auto Scaling, STS, CloudTrail, VPC, NAT Gateway, Systems Manager (SSM), DynamoDB, KMS, EventBridge, SNS, CloudWatch, AWS Config, Lambda, SQS, AWS CLI, Linux
 
 (This list grows as more labs are added)
